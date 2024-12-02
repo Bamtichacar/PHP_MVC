@@ -10,6 +10,7 @@ abstract class DAO implements CRUDInterface, RepositoryInterface {
         $this->pdo = new PDO("{$objectcontent->driver}:dbname={$objectcontent->dbname};host={$objectcontent->host};port={$objectcontent->port};charset=utf8", 
         "{$objectcontent->username}", 
         "{$objectcontent->password}");
+    }
 
 
 
@@ -82,7 +83,7 @@ $this->pdo = new PDO("{$objectcontent->driver}:dbname={$objectcontent->dbname};h
           
  
 
-    }
+
  
 
     
