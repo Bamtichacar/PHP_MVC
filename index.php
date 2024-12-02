@@ -1,8 +1,10 @@
 <?php
 include './autoLoader.php';
 
-
+echo "<pre>";
 $testduDAO = new DefaultDAO();
-$testduDAO->getAll();
+$results= $testduDAO->getAll();
+print_r($results);
+
 
 
