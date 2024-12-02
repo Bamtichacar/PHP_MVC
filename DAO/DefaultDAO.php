@@ -19,10 +19,14 @@ class DefaultDAO extends DAO implements CRUDInterface, RepositoryInterface {
         "{$objectcontent->password}");
     }
  */            
-    protected function getpdo() : PDO{
+/*     protected function getpdo() : PDO{
             return DAO :: $pdo;
     }
+ */    
     
-}
-    
+    public function myMethod() {
+        $pdo = $this->getpdo();
+        // Utilisez $pdo pour interagir avec la base de données
+    }
 
+}
