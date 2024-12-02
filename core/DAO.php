@@ -13,13 +13,41 @@ abstract class DAO implements CRUDInterface, RepositoryInterface {
     }
 
     protected function getpdo() : PDO{
-        return DAO :: $PDO;
+        return DAO :: $pdo;
     }
 
 }
 
+/* Bien sûr ! Voici une explication de la méthode getpdo que vous avez partagée :
 
-/*         $this->pdo = new PDO("{$objectcontent->driver}:
+Méthode getpdo
+protected function getpdo() : PDO {
+    return DAO::$pdo;
+}
+Décomposition de la méthode :
+protected : Ce mot-clé indique que la méthode getpdo est protégée. Cela signifie qu'elle ne peut être appelée que depuis la classe elle-même et ses sous-classes, mais pas depuis l'extérieur de ces classes.
+
+function getpdo() : Déclare une méthode nommée getpdo.
+
+: PDO : Indique que cette méthode retourne un objet de type PDO. C'est une déclaration de type de retour, qui aide à garantir que la méthode renvoie toujours un objet de ce type.
+
+return DAO::$PDO; : Cette ligne retourne la propriété statique $pdo de la classe DAO.
+
+Explication détaillée :
+Propriété statique : DAO::$PDO fait référence à une propriété statique nommée $PDO dans la classe DAO. Les propriétés statiques appartiennent à la classe elle-même plutôt qu'à une instance spécifique de la classe.
+Retourne un objet PDO : La méthode getpdo retourne cet objet PDO, ce qui permet à d'autres méthodes de la classe (ou des sous-classes) d'accéder à la connexion PDO pour interagir avec la base de données.
+Exemple d'utilisation :
+Si vous avez une classe qui hérite de celle contenant getpdo, vous pouvez accéder à la connexion PDO comme ceci :
+
+class MyClass extends ParentClass {
+    public function myMethod() {
+        $pdo = $this->getpdo();
+        // Utilisez $pdo pour interagir avec la base de données
+    }
+}
+Cette méthode est utile pour centraliser et sécuriser l'accès à la connexion PDO, en s'assurant que toutes les interactions avec la base de données passent par une méthode contrôlée.
+
+ *//*         $this->pdo = new PDO("{$objectcontent->driver}:
                               {$objectcontent->host};
                               dbname={$objectcontent->dbname};
                               charset=utf8,
