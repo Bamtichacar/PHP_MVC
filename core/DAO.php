@@ -1,7 +1,7 @@
 <?php
 use PDO;
 abstract class DAO implements CRUDInterface, RepositoryInterface {
-    static private $PDO;
+    static protected $pdo;
     function __construct() {
 /*         $DS = DIRECTORY_SEPARATOR;
         $directory = explode ($DS, __DIR__);*/
@@ -12,6 +12,11 @@ abstract class DAO implements CRUDInterface, RepositoryInterface {
         "{$objectcontent->password}");
     }
 
+    protected function getpdo() : PDO{
+        return DAO :: $PDO;
+    }
+
+}
 
 
 /*         $this->pdo = new PDO("{$objectcontent->driver}:
@@ -101,8 +106,3 @@ En PHP, il n'est pas possible de nommer les arguments comme username="..." et pa
 
     
 
-    protected function getpdo() : PDO{
-        return DAO :: $PDO;
-    }
-
-}
