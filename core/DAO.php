@@ -79,6 +79,15 @@ $this->pdo = new PDO("{$objectcontent->driver}:dbname={$objectcontent->dbname};h
                      "{$objectcontent->password}");
 
 
+
+je ne voulais pas les inclure dans les chaines de connection mais faire plutot ainsi $this->pdo = new PDO("{$objectcontent->driver}:dbname={$objectcontent->dbname};host={$objectcontent->host};port={$objectcontent->port};charset=utf8", username="{$objectcontent->username}", password="{$objectcontent->password}");
+Je comprends mieux votre intention. Cependant, en PHP, les paramètres username et password doivent être passés comme arguments séparés à la fonction new PDO, et non comme des parties nommées dans la chaîne de connexion.
+Explication :
+Premier argument : La chaîne de connexion qui inclut le type de base de données, le nom de la base de données, l'hôte, le port et le charset.
+Deuxième argument : Le nom d'utilisateur pour la connexion à la base de données.
+Troisième argument : Le mot de passe pour la connexion à la base de données.
+En PHP, il n'est pas possible de nommer les arguments comme username="..." et password="..." dans l'appel à new PDO. Les arguments doivent être passés dans l'ordre attendu par le constructeur de la classe PDO.
+
  */
           
  
