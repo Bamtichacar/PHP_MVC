@@ -8,3 +8,13 @@ spl_autoload_register(function ($class) {
  include './controllers/' . $class . '.php';
  endif;
 });
+
+
+<?php
+include './autoLoader.php';
+
+
+$testduDAO = new DefaultDAO();
+$testduDAO->getAll();
+
+
