@@ -20,7 +20,7 @@ class DefaultDAO extends DAO implements CRUDInterface, RepositoryInterface {
     }
  */            
     protected function getpdo() : PDO{
-            return DAO :: $PDO;
+            return DAO :: $pdo;
     }
     
 }
